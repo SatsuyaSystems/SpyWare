@@ -1,0 +1,4 @@
+name: SpyWare
+version: '1.0-SNAPSHOT'
+main: de.satsuya.spyWare.SpyWare
+api-version: '1.21'
