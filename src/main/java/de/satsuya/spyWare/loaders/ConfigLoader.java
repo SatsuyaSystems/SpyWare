@@ -15,7 +15,7 @@ public class ConfigLoader {
 
     public static void setupConfig() {
         ElysiumLogger.log("Setting up default configuration...");
-        JavaPlugin plugin = (JavaPlugin) Bukkit.getPluginManager().getPlugin("ElysiumCore");
+        JavaPlugin plugin = (JavaPlugin) Bukkit.getPluginManager().getPlugin("SpyWare");
 
         if (plugin != null) {
             // Set config file path
@@ -33,7 +33,7 @@ public class ConfigLoader {
 
         // If configFile is not set yet, set it now
         if (configFile == null) {
-            JavaPlugin plugin = (JavaPlugin) Bukkit.getPluginManager().getPlugin("ElysiumCore");
+            JavaPlugin plugin = (JavaPlugin) Bukkit.getPluginManager().getPlugin("SpyWare");
             if (plugin != null) {
                 configFile = new File(plugin.getDataFolder(), "config.yml");
             }
@@ -66,7 +66,7 @@ public class ConfigLoader {
 
         // If configFile is not set yet, set it now
         if (configFile == null) {
-            JavaPlugin plugin = (JavaPlugin) Bukkit.getPluginManager().getPlugin("ElysiumCore");
+            JavaPlugin plugin = (JavaPlugin) Bukkit.getPluginManager().getPlugin("SpyWare");
             if (plugin != null) {
                 configFile = new File(plugin.getDataFolder(), "config.yml");
             }

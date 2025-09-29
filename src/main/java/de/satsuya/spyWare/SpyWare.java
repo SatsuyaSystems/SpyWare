@@ -27,7 +27,7 @@ public final class SpyWare extends JavaPlugin {
             ConfigLoader.loadConfig();
 
             // Starten des asynchronen WebSocket-Clients beim Plugin-Start
-            String wsUri = "ws://localhost:8001"; // URI anpassen!
+            String wsUri = ConfigLoader.configData.getString("ws"); // URI anpassen!
             wsClient = new WebSocketClientRunnable(this, wsUri);
 
             // Da der WebSocket-Client intern bereits asynchron ist,
@@ -35,14 +35,6 @@ public final class SpyWare extends JavaPlugin {
             // Wir verwenden es hier hauptsächlich, um die Bukkit-Instanz zu übergeben.
             // Der eigentliche Verbindungsaufbau ist ASYNCHRON und BLOCKIERT NICHT den Haupt-Thread.
             wsClient.runTaskAsynchronously(this);
-
-            // Beispiel: Senden einer Nachricht nach 5 Sekunden (im asynchronen WebSocket-Thread)
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    wsClient.sendMessage("{\"a\": \"b\"}");
-                }
-            }.runTaskLaterAsynchronously(this, 100);
 
             EventLoader.loadEvents(this);
         }

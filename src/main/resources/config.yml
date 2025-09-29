@@ -1,4 +1,3 @@
-serialized-events:
-  - org.bukkit.event.player.PlayerJoinEvent
-  - org.bukkit.event.player.PlayerQuitEvent
-  - org.bukkit.event.block.BlockBreakEvent
+externalId: ElyoLocal
+api-key: sdfjbhkerihujdfgiuohd
+ws: ws://localhost:8001

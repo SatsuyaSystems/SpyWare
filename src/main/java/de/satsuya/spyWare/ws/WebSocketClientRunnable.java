@@ -68,7 +68,7 @@ public class WebSocketClientRunnable extends BukkitRunnable implements WebSocket
         new BukkitRunnable() {
             @Override
             public void run() {
-                plugin.getServer().broadcastMessage("§6[WebSocket] §fMessage from server: §a" + message);
+                plugin.getLogger().info("Message from server: " + message);
                 // Further Bukkit interactions here...
             }
         }.runTask(plugin);
@@ -114,12 +114,7 @@ public class WebSocketClientRunnable extends BukkitRunnable implements WebSocket
     public void sendMessage(String message) {
         if (webSocket != null && !webSocket.isOutputClosed()) {
             // Sending is asynchronous, returns a CompletableFuture
-            webSocket.sendText(message, true)
-                    .thenRun(() -> plugin.getLogger().info("Sent: " + message))
-                    .exceptionally(ex -> {
-                        plugin.getLogger().severe("Error sending message: " + ex.getMessage());
-                        return null;
-                    });
+            webSocket.sendText(message, true);
         } else {
             plugin.getLogger().warning("Cannot send message: WebSocket is not connected.");
         }
